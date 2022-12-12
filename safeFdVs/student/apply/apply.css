@@ -1,0 +1,122 @@
+:root{
+    --reportHeight: 60vh;
+    --reportLineNum:7 ;
+    --entryLineNum:5;
+}
+
+.totalApply{
+    display: flex;
+    position: relative;
+    top:20vh;
+    justify-content: center;
+}
+.totalApply .block{
+    /*flex: 1;*/
+    border: 2px black solid;
+    margin:0 25px;
+    width: 25%;
+    height: var(--reportHeight);
+    color: black;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.totalApply .block h1{
+    flex: 1;
+    text-align: center;
+    line-height: calc(var(--reportHeight)/6);
+    border-bottom: 10px white ridge;
+}
+.totalApply .block .moreInfo{
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+}
+
+.totalApply .block .moreInfo li{
+    flex: 1;
+    position: relative;
+    line-height: calc( var(--reportHeight) / 6 * 5 / calc( 2 + (var(--reportLineNum))));
+    font-size: 19px;
+    border-bottom: 2px dashed lightgray;
+    font-family: 'erzi', serif;
+
+}
+.totalApply .enterApply .moreInfo li{
+    line-height: calc( var(--reportHeight) / 6 * 5 / calc( 0 + (var(--entryLineNum))));
+}
+.totalApply .block .moreInfo li .description{
+    display: inline-block;
+    width: 30%;
+    text-align: right;
+    padding-right: 5%;
+}
+.totalApply .block .moreInfo li .detail{
+    display: inline-block;
+    width: 65%;
+    /*background-color: red;*/
+    position: absolute;
+    right: 0;
+    text-align: left;
+}
+.totalApply .block .moreInfo li .change{
+    position: absolute;
+    top:22%;
+    left:35%;
+    font-size: 18px;
+    width: 50%;
+    height: 23px;
+    border: none;
+    border-bottom: 2px solid gray;
+    text-indent: 1em;
+}
+.totalApply .block .moreInfo li button{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    font-size: 20px;
+    cursor: pointer;
+}
+.totalApply .block .moreInfo li .dailyTemperature{
+    width: 20%;
+}
+#special{
+    position: absolute;
+    top:2px;
+    right: 40%;
+}
+#negative,#positive{
+    position: absolute;
+    top:18px;
+    width: 10%;
+}
+#negative{
+    left:30%;
+}
+#positive{
+    left:50%;
+}
+#forNeg{
+    position: absolute;
+    top:5%;
+    left:37%;
+}
+#forPos{
+    position: absolute;
+    top:5%;
+    left:57%;
+}
+#leaveReason,#entryReason {
+    resize: none;
+    width: 50%;
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    left: 35%;
+}
+#entryDate{
+    top:40%;
+}

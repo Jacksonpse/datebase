@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stu-info</title>
+
+    <link rel="stylesheet" href="info.css">
+    <link rel="stylesheet" href="../../tool_util/general.css">
+    <link rel="stylesheet" href="../../tool_util/stuNav.css">
+</head>
+<body>
+    <ul class="stuNav">
+        <li class="nowPage"><a href="../info/info.html">个人信息</a></li>
+        <li><a href="../apply/apply.html">填写表单</a></li>
+        <li><a href="../applyCheck/applyCheck.html">申请状态</a></li>
+        <li><a href="../classStatistics/classStatistics.html">班级信息</a></li>
+    </ul>
+
+    <div class="stuInfo">
+        <h1>----- 个人信息 -----</h1>
+        <ul class="moreInfo">
+            <li><span class="description">姓名:</span><span class="detail stuName">？？？</span></li>
+            <li><span class="description">班级:</span><span class="detail className">？？？</span></li>
+            <li><span class="description">院系:</span><span class="detail deptName">？？？</span></li>
+            <li><span class="description">校区:</span><span class="detail campus change">？？？</span></li>
+            <li><span class="description">电话:</span><input class="detail phone change" value="???"></li>
+            <li><span class="description">邮箱:</span><input value="???" class="detail email change" >></li>
+            <li><span class="description">宿舍:</span><input value="???" class="detail dormitory change"></li>
+            <li><span class="description">住址:</span><input value="???" class="detail address change"></li>
+            <li><span class="description">身份证类别:</span><span class="detail idCardType">？？？</span></li>
+            <li><span class="description">身份证号码:</span><span  class="detail idCardNum">？？？</span></li>
+            <li><span class="description">入校权限:</span><span  class="detail admissionLevel">？？？</span></li>
+            <li><span class="description">状态:</span><span class="detail inOutState">？？？</span></li>
+            <li><button id="updateBtn">更新信息</button></li>
+        </ul>
+    </div>
+</body>
+<script src="../../tool_util/util.js"></script>
+<script src="../../jquery/http_code.jquery.com_jquery-3.6.0.js"></script>
+<script src="info.js"></script>
+</html>
