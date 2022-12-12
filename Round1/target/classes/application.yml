@@ -10,7 +10,7 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://localhost:3306/safefdu?serverTimezone=Asia/Shanghai
       username: root
-      password: 1234
+      password: cxwq74120963
   jackson:
     time-zone: GMT+8
 

@@ -1,0 +1,65 @@
+:root{
+    --tableHeight: 80vh;
+    --linenNum:13
+}
+.stuInfo{
+    position: absolute;
+    top:60%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 25vw;
+    height: var(--tableHeight);
+    border: 2px black solid;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+.stuInfo h1{
+    flex: 1;
+    text-align: center;
+    line-height: calc(var(--tableHeight)/6);
+    border-bottom: 10px white ridge;
+}
+
+.stuInfo .moreInfo{
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+}
+.stuInfo .moreInfo li{
+    flex: 1;
+    position: relative;
+    line-height: calc( var(--tableHeight) / 6 * 5 / calc( 2 + (var(--linenNum))));
+    font-size: 19px;
+    border-bottom: 2px dashed lightgray;
+    font-family: 'erzi';
+
+}
+.stuInfo .moreInfo li .description{
+    display: inline-block;
+    width: 35%;
+    text-align: right;
+    padding-right: 5%;
+}
+.stuInfo .moreInfo li .detail{
+    display: inline-block;
+    width: 65%;
+    /*background-color: red;*/
+    position: absolute;
+    right: 0;
+    text-align: left;
+}
+.stuInfo .moreInfo li .change{
+    position: absolute;
+    top:12%;
+    font-size: 18px;
+    width: 50%;
+    left:35%;
+}
+.stuInfo .moreInfo li button{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    font-size: 20px;
+}

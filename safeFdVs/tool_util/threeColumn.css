@@ -1,0 +1,55 @@
+:root{
+    --insideTitleHeight:40;
+}
+/*一整块，3列*/
+.definedContent{
+    position: relative;
+    width: 100%;
+    top:20vh;
+    border:2px solid red;
+    display: flex;
+    justify-content: center;
+}
+/*一列*/
+.definedContent .insideContent{
+    border :2px solid blue;
+    width: 30%;
+    margin: 0 30px;
+    display: flex;
+    flex-direction: column;
+
+}
+/*子项标题*/
+.definedContent .insideContent .insideTitle {
+    height: var(--insideTitleHeight);
+    border-bottom: gray solid 4px;
+}
+.definedContent .insideContent .insideTitle .insideTitleContent{
+    font-size: calc(var(--insideTitleHeight) * 1px);
+}
+/*具体子项*/
+.definedContent .insideContent .insideUnit{
+    display: flex;
+    flex-direction: column;
+    min-height: 130px;
+}
+.definedContent .insideContent .insideUnit:after{
+    content: "";
+    border:2px solid  red;
+}
+.definedContent .insideContent .insideUnit .headLineContent{
+    text-align: left;
+}
+.definedContent .insideContent .insideUnit .insideUnitItem{
+    display: flex;
+    justify-content: center;
+    height: 25px;
+}
+.definedContent .insideContent .insideUnit .insideUnitItem .insideUnitContentLabel{
+    width: 20%;
+}
+.definedContent .insideContent .insideUnit .insideUnitItem .insideUnitContentTrue{
+    width: 50%;
+}
+
+
