@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "roleconstants",
+      "type": "com.example.safefdu.common.RoleConstant",
+      "sourceType": "com.example.safefdu.common.RoleConstant"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

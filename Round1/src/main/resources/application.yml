@@ -1,0 +1,28 @@
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 600s
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/safefdu?serverTimezone=Asia/Shanghai
+      username: root
+      password: 1234
+  jackson:
+    time-zone: GMT+8
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #日志
+
+
+#logging:
+#  file:
+#    name: server.log
+#  logback:
+#    rollingpolicy:
+#      max-file-size: 4KB
+#      file-name-pattern: server.%d.%i.log  #文件日志
