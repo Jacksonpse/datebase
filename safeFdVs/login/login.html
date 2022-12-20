@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../tool_util/general.css">
+</head>
+<body>
+    <ul class="totalIdentity">
+        <li class="identity">
+            <ul class="content">
+               <li><span>以平凡的学生身份登录</span></li>
+                <li> <input id="stu_log" type="number" class="userName" placeholder="Input a s_id...">
+                <li><button id="stuButton">登录</button></li>
+            </ul>
+        </li>
+        <li class="identity">
+            <ul class="content">
+                 <li><span>以班级管理员身份登录</span></li>
+                 <li><input id="cls_log" type="number" class="userName" placeholder="Input a w_id..."></li>
+                 <li><button id="clsButton">登录</button></li>
+            </ul>
+        </li>
+        <li class="identity">
+            <ul class="content">
+             <li><span>以院系管理员身份登录</span></li>
+             <li><input id="dept_log" type="number"class="userName" placeholder="Input a w_id..."></li>
+             <li><button id="deptButton">登录</button></li>
+            </ul>
+        </li>
+        <li class="identity">
+            <ul class="content">
+             <li><span>以超级管理员身份登录</span></li>
+             <li><input id="sup_log" type="number" class="userName" placeholder="Input a w_id..."></li>
+             <li><button id="supButton">登录</button></li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+<script src="../jquery/http_code.jquery.com_jquery-3.6.0.js"></script>
+<script src="../tool_util/util.js"></script>
+<script src="login.js"></script>
+</html>

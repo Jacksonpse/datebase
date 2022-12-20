@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apply</title>
+  <link rel="stylesheet" href="apply.css">
+  <link rel="stylesheet" href="../../tool_util/stuNav.css">
+  <link rel="stylesheet" href="../../tool_util/general.css">
+</head>
+<body>
+
+<ul class="stuNav">
+  <li><a href="../info/info.html">个人信息</a></li>
+  <li class="nowPage"><a href="../apply/apply.html">填写表单</a></li>
+  <li><a href="../applyCheck/applyCheck.html">申请状态</a></li>
+  <li><a href="../classStatistics/classStatistics.html">班级信息</a></li>
+</ul>
+
+
+  <div class="totalApply">
+    <div class="block leaveApply">
+      <h1>----- 离校申请 -----</h1>
+      <ul class="moreInfo">
+        <li><span class="description">学号:</span><span class="detail
+        dailySid">？？？</span></li>
+        <li><span class="description">申请时间:</span><span class="detail
+        dailyTime">？？？</span></li>
+        <li><span class="description">理由:</span>
+          <textarea id="leaveReason" name="leaveReason" cols="20" rows="5" maxlength="100" placeholder="字数上限100字" required></textarea>
+        </li>
+
+        <li><span class="description">目的地:</span><input class="detail leaveDest change" required></li>
+        <li><span class="description">离开日期:</span><input class="detail leaveDate change" type="date" required></li>
+        <li><span class="description">返校日期:</span><input class="detail returnDate change" type="date" required></li>
+        <li><button id="leaveBtn">提交离校申请</button></li>
+      </ul>
+    </div>
+<!--  ------------------------------------------------------------->
+    <div class="block dailyReport">
+      <h1>----- 平安复旦 -----</h1>
+      <ul class="moreInfo">
+        <li><span class="description">姓名:</span><span class="detail
+        dailyName">？？？</span></li>
+        <li><span class="description">学号:</span><span class="detail
+        dailySid">？？？</span></li>
+        <li><span class="description">定位:</span><input class="detail dailyLocation change"/></li>
+        <li><span class="description">体温:</span><input class="detail dailyTemperature change" type="number" min="35" max="42"/><span id="special">℃</span></li>
+        <li>
+          <span class="description">状态:</span>
+          <input type="radio" class="detail dailyState" id="negative" name="dailyState"  value=0 checked>
+          <label for="negative" id="forNeg">阴性</label>
+          <input type="radio" class="detail dailyState" id="positive" name="dailyState" value=1>
+          <label for="positive" id="forPos">阳性</label>
+        </li>
+        <li><span class="description">时间:</span><span class="detail
+        dailyTime">？？？</span></li>
+        <li><button id="dailyBtn">上报信息</button></li>
+      </ul>
+    </div>
+  <!--  ------------------------------------------------------------->
+
+    <div class="block enterApply">
+      <h1>----- 入校申请 -----</h1>
+      <ul class="moreInfo">
+        <li><span class="description">学号:</span><span class="detail
+        dailySid">？？？</span></li>
+        <li><span class="description">申请时间:</span><span class="detail
+        dailyTime">？？？</span></li>
+        <li><span class="description">理由:</span>
+          <textarea id="entryReason" name="entryReason" cols="20" rows="5" maxlength="100" placeholder="字数上限100字" required></textarea>
+        </li>
+        <li><span class="description">返校日期:</span><input class="detail
+        entryDate change" type="date" id="entryDate" required></li>
+        <li><button id="entryBtn">提交入校申请</button></li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
+<script src="../../tool_util/util.js"></script>
+<script src="../../jquery/http_code.jquery.com_jquery-3.6.0.js"></script>
+<script src="apply.js"></script>
