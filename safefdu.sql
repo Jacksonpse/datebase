@@ -11,7 +11,7 @@
  Target Server Version : 80031 (8.0.31)
  File Encoding         : 65001
 
- Date: 24/12/2022 13:02:51
+ Date: 24/12/2022 15:29:00
 */
 
 SET NAMES utf8mb4;
@@ -236,8 +236,10 @@ INSERT INTO `health_report` VALUES ('20302010030', '2022-01-17 05:38:53', 0, 40,
 INSERT INTO `health_report` VALUES ('20302010030', '2022-05-20 02:02:58', 1, 39, '中国深圳罗湖区清水河一路124号41室');
 INSERT INTO `health_report` VALUES ('20302010037', '2022-02-06 09:49:09', 1, 38, '中国中山乐丰六路541号46栋');
 INSERT INTO `health_report` VALUES ('20302010037', '2022-02-06 22:32:44', 1, 38, '中国深圳福田区景田东一街837号32号楼');
-INSERT INTO `health_report` VALUES ('20302010060', '2021-11-05 19:23:23', 1, 36, '中国成都市成华区二仙桥东三路695号32栋');
+INSERT INTO `health_report` VALUES ('20302010054', '2022-12-24 14:52:37', 1, 36, '上海');
 INSERT INTO `health_report` VALUES ('20302010060', '2022-11-11 16:10:31', 1, 39, '中国上海市浦东新区健祥路170号16楼');
+INSERT INTO `health_report` VALUES ('20302010060', '2022-12-15 19:23:23', 1, 36, '中国成都市成华区二仙桥东三路695号32栋');
+INSERT INTO `health_report` VALUES ('20302010060', '2022-12-23 15:04:31', 1, 37, '中国上海市杨浦区');
 INSERT INTO `health_report` VALUES ('20302010066', '2021-10-22 09:01:35', 1, 39, '中国深圳罗湖区清水河一路886号华润大厦26室');
 INSERT INTO `health_report` VALUES ('20302010066', '2021-11-23 20:34:40', 1, 39, '中国北京市海淀区清河中街68号177号华润大厦5室');
 INSERT INTO `health_report` VALUES ('20302010066', '2022-02-10 10:54:08', 1, 37, '中国北京市朝阳区三里屯路882号24栋');
