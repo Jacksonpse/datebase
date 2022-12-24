@@ -1,23 +1,40 @@
 $(document).ready(function () {
-    exitApplyAjax();
-    dailyApplyAjax();
+    exitApplyAjax('全部');
+    dailyApplyAjax(9999);
+    entryApplyAjax('全部');
+    $('#exitType').change(()=>{
+        exitApplyAjax($('#exitType').val());
+    });
+    $('#dailyType').change(()=>{
+        dailyApplyAjax($('#dailyType').val());
+    });
+    $('#entryType').change(()=>{
+        entryApplyAjax($('#entryType').val());
+    });
 })
 
 //离校申请
-function exitApplyAjax() {
+function exitApplyAjax(type) {
     let stuId = window.localStorage.getItem("stuId");
-    let url = "/exitapply/get/" + stuId;
+    let url="";
+    switch (type) {
+        case'全部':url=`/exitapply/get/${stuId}`;break;
+        case'已通过':url=`/exitapply/getaccept/${stuId}`;break;
+        case'未通过':url=`/exitapply/getrefuse/${stuId}`;break;
+        case'待审批':url = `/exitapply/getundisposed/${stuId}`;break;
+        default:alert('错误的exitApplyAjax type');
+    }
     sendAjax(url, 'get', null, loadLeave);
 }
 
 function loadLeave(data) {
-    setLeaveTitle();
+    $('.insideUnit').remove(".exitUnit");
     data.forEach((record, index) => {
         //具体内容
         let applyTime = getYMD(record.applyTime);
         let stage = switchCheckStage(record.checkStage);
         let ele = `<li>
-            <ul class="insideUnit ">
+            <ul class="insideUnit exitUnit">
                 <li><h2 class="headLineContent">--【申请${index + 1}】--</h2></li>
                 <li class="insideUnitItem">
                     <span class="insideUnitContentLabel">申请时间：</span>
@@ -53,28 +70,6 @@ function loadLeave(data) {
     })
 }
 
-function setLeaveTitle() {
-    //设置标题
-    let exitTitle =
-        `<li class="insideTitle">
-               <h1 class="insideTitleContent">--所有离校申请</h1>
-               <select class"insideContentNumSelector">
-                    <option value ="全部">Volvo</option>
-                    <option value ="过去七天">Saab</option>
-                    <option value="过去一月">Opel</option>
-                    <option value="过去一年">Audi</option>
-                </select>
-                <select class"insideContentStateSelector">
-                    <option value ="全部">Volvo</option>
-                    <option value ="未通过">Saab</option>
-                    <option value="待审批">Opel</option>
-                    <option value="已通过">Audi</option>
-                </select>
-         </li>`;
-    $('#exitApplyUnit').html(exitTitle);
-
-}
-
 function switchCheckStage(checkStage) {
     //认为checkStage是string
     let stage = parseInt(checkStage);
@@ -93,28 +88,20 @@ function switchCheckStage(checkStage) {
 }
 
 //健康日报
-function dailyApplyAjax() {
-    // /get/id/count
+function dailyApplyAjax(num) {
     let stuId = window.localStorage.getItem("stuId");
-    let count = 5;
-    let url = `/healthreport/get/${stuId}/${count}`;
+    let url = `/healthreport/get/${stuId}/${num}`;
     sendAjax(url, 'get', null, loadDaily);
 }
 
-function setDailyTile() {
-    //设置标题
-    let exitTitle = ` <li class="insideTitle"><h1 class="insideTitleContent">--所有健康日报</h1></li>`;
-    $('#dailyReportUnit').html(exitTitle);
-}
-
 function loadDaily(data) {
-    setDailyTile();
+    $('.insideUnit').remove(".dailyUnit");
     data.forEach((record, index) => {
         //具体内容
         let applyTime = getYMD(record.applyTime);
         let stage = switchCheckStage(record.checkStage);
         let ele = `<li>
-            <ul class="insideUnit ">
+            <ul class="insideUnit dailyUnit">
                 <li><h2 class="headLineContent">--【填报${index + 1}】--</h2></li>
                 <li class="insideUnitItem">
                     <span class="insideUnitContentLabel">填报时间：</span>
@@ -139,10 +126,50 @@ function loadDaily(data) {
 }
 
 //进校申请
-function entryApplyAjax() {
-    // /get/id/count
+function entryApplyAjax(type) {
     let stuId = window.localStorage.getItem("stuId");
-    let count = 5;
-    //全部 通过 未通过
-    let url = `/healthreport/get/${stuId}/${count}`;
+    let url="";
+    switch (type) {
+        case'全部':url=`/entryreply/get/${stuId}`;break;
+        case'已通过':url=`/entryreply/getaccept/${stuId}`;break;
+        case'未通过':url=`/entryreply/getrefuse/${stuId}`;break;
+        case'待审批':url = `/entryreply/getundisposed/${stuId}`;break;
+        default:alert('错误的entryApplyAjax type');
+    }
+    sendAjax(url, 'get', null, loadEntry);
+}
+function loadEntry(data){
+    $('.insideUnit').remove(".entryUnit");
+    data.forEach((record, index) => {
+        //具体内容
+        let applyTime = getYMD(record.applyTime);
+        let stage = switchCheckStage(record.checkStage);
+        let ele = `<li>
+            <ul class="insideUnit entryUnit">
+                <li><h2 class="headLineContent">--【申请${index + 1}】--</h2></li>
+                <li class="insideUnitItem">
+                    <span class="insideUnitContentLabel">申请时间：</span>
+                    <span class="insideUnitContentTrue">${applyTime}</span>
+                </li>
+                <li class="insideUnitItem">
+                    <span class="insideUnitContentLabel">申请理由：</span>
+                    <span class="insideUnitContentTrue">${record.reason}</span>
+                </li>
+    
+                <li class="insideUnitItem">
+                <span class="insideUnitContentLabel">返校时间：</span>
+                <span class="insideUnitContentTrue">${record.arriveDate}</span>
+            </li>
+                <li class="insideUnitItem">
+                    <span class="insideUnitContentLabel">审批阶段：</span>
+                    <span class="insideUnitContentTrue">${stage}</span>
+                </li>
+                <li class="insideUnitItem">
+                    <span class="insideUnitContentLabel">拒绝理由：</span>
+                    <span class="insideUnitContentTrue">${record.denyComment !== 'null' ? '无' : record.denyComment}</span>
+                </li>
+            </ul>
+        </li>`
+        $('#entryApplyUnit').append(ele);
+    })
 }

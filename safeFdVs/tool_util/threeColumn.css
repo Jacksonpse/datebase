@@ -49,7 +49,11 @@
     width: 20%;
 }
 .definedContent .insideContent .insideUnit .insideUnitItem .insideUnitContentTrue{
+    display: inline-block;
     width: 50%;
+    white-space:nowrap;/*强制单行显示*/
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 

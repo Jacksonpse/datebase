@@ -20,7 +20,7 @@ stuButton.addEventListener('click',()=>{
             type: 'post',
             dataType: 'json',
             contentType: 'application/json; charset=UTF-8',
-            data: JSON.stringify( sendData),
+            data: JSON.stringify(sendData),
             success: function (data) {
                 if (data.code === "404") {
                     alert("No such student");
@@ -30,7 +30,10 @@ stuButton.addEventListener('click',()=>{
                        window.localStorage.setItem(i,data.data[i]);
                     }
                     window.location.href ="../student/info/info.html";
-                  }
+                  }else{
+                    alert(data.msg)
+                }
+
             },
             error: function () {
                 alert('Internet Error');

@@ -14,7 +14,7 @@ window.addEventListener("load", () => {
         }
 
         $.ajax({
-            url: "http://192.168.50.252:8080/student/updateinfo",
+            url: serverIp +"/student/updateinfo",
             type: 'post',
             dataType: 'json',
             contentType: 'application/json; charset=UTF-8',
@@ -54,23 +54,6 @@ function infoLoader() {
     $('.idCardType').text(window.localStorage.getItem("idCardType"));
     $('.idCardNum').text(window.localStorage.getItem("idCardNum"));
 
-    //身份证类型
-    let type = window.localStorage.getItem("idCardType");
-    let idCardType = $('.idCardType');
-    switch (parseInt(type)) {
-        case 0:
-            idCardType.text("大陆身份证");
-            break;
-        case 1:
-            idCardType.text("港澳台身份证");
-            break;
-        case 2:
-            idCardType.text("外国护照");
-            break;
-        default:
-            idCardType.text("未知类型的身份证");
-            break;
-    }
     //入校权限
     let level = parseInt(window.localStorage.getItem("admissionLevel"));
     let admissionString = "";

@@ -17,19 +17,37 @@
 </ul>
 <div class="definedContent">
     <ul class="insideContent exitApply" id="exitApplyUnit">
-        <li class="insideTitle">
-            <h1 class="insideTitleContent">--所有离校申请</h1>
-        </li>
+        <div class="insideTitle">
+        <h1 class="insideTitleContent">--离校申请</h1>
+        <select class="insideContentStateSelector"  id="exitType">
+            <option value ="全部">全部</option>
+            <option value ="未通过">未通过</option>
+            <option value="待审批">待审批</option>
+            <option value="已通过">已通过</option>
+        </select>
+    </div>
     </ul>
     <ul class="insideContent exitApply" id="dailyReportUnit">
-        <li class="insideTitle">
-            <h1 class="insideTitleContent">--所有健康日报</h1>
-        </li>
+        <div class="insideTitle">
+            <h1 class="insideTitleContent">--健康日报</h1>
+            <select class="insideContentStateSelector"  id="dailyType">
+                <option value ="9999">全部</option>
+                <option value ="7">过去一周</option>
+                <option value="30">过去一月</option>
+                <option value="365">过去一年</option>
+            </select>
+        </div>
     </ul>
     <ul class="insideContent exitApply" id="entryApplyUnit">
-        <li class="insideTitle">
-            <h1 class="insideTitleContent">--所有进校申请</h1>
-        </li>
+        <div class="insideTitle">
+            <h1 class="insideTitleContent">--入校申请</h1>
+            <select class="insideContentStateSelector"  id="entryType">
+                <option value ="全部">全部</option>
+                <option value ="未通过">未通过</option>
+                <option value="待审批">待审批</option>
+                <option value="已通过">已通过</option>
+            </select>
+        </div>
     </ul>
 </div>
 </body>
