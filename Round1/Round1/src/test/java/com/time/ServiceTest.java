@@ -76,6 +76,17 @@ public class ServiceTest {
         System.out.println(listMap);
     }
 
+    @Test
+    public void t5(){
+        QueryWrapper<HealthReport> queryWrapper = new QueryWrapper<>();
+        System.out.println(new Timestamp(System.currentTimeMillis() - 2 * Constants.ONEDAY));
+        queryWrapper.eq("stu_id","20302010060");
+        queryWrapper.ge("time", new Timestamp(System.currentTimeMillis() - 2 * Constants.ONEDAY));
+        queryWrapper.select("time");
+        //queryWrapper.last("limit 0," + count);
+        System.out.println(healthReportDao.selectList(queryWrapper));
+    }
+
     private Timestamp toZero(Timestamp timestamp){
         timestamp.setMinutes(0);
         timestamp.setSeconds(0);

@@ -21,6 +21,11 @@ public class StudentDto{
     private String className;
     private String deptName;
 
+    private int classId;
+
+    private int deptId;
+
+
     private Timestamp outTime;
 
     private long entryReplyNum;
@@ -40,5 +45,7 @@ public class StudentDto{
         admissionLevel = student.getAdmissionLevel();
         inOutState = student.getInOutState();
         campName = student.getCampName();
+        deptId = student.getDeptId();
+        classId = student.getClassId();
     }
 }
