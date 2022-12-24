@@ -68,9 +68,9 @@ public class EntryReplyController {
     @GetMapping("/getrefuse/{id}")
     public ResultBody getRefuse(@PathVariable String id){
         LambdaQueryWrapper<EntryReply> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(EntryReply::getStuId,id);
-        queryWrapper.eq(EntryReply::getCheckStage, Constants.CLASSREFUSE)
-                .or().eq(EntryReply::getCheckStage,Constants.TEACHERREFUSE);
+        queryWrapper.eq(EntryReply::getStuId,id).and(wrapper->wrapper.eq(EntryReply::getCheckStage, Constants.CLASSREFUSE)
+                .or().eq(EntryReply::getCheckStage,Constants.TEACHERREFUSE));
+
         List<EntryReply> list = entryReplyService.list(queryWrapper);
 
         return ResultBody.success(list);
@@ -128,7 +128,7 @@ public class EntryReplyController {
         return ResultBody.success(list);
     }
 
-    @GetMapping("refused/{id}/{n}")
+    @GetMapping("/refused/{id}/{n}")
     public ResultBody getRefused(@PathVariable String id,@PathVariable int n){
         long beginTime = System.currentTimeMillis() - 86400000L * n;
         List<EntryReply> list = entryReplyService.getEntryReply(false,id,beginTime,Constants.REFUSE);

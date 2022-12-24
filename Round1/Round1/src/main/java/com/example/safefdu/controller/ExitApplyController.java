@@ -45,9 +45,8 @@ public class ExitApplyController {
     @GetMapping("/getrefuse/{id}")
     public ResultBody getRefuse(@PathVariable String id){
         LambdaQueryWrapper<ExitApply> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(ExitApply::getStuId,id);
-        queryWrapper.eq(ExitApply::getCheckStage, Constants.CLASSREFUSE)
-                .or().eq(ExitApply::getCheckStage,Constants.TEACHERREFUSE);
+        queryWrapper.eq(ExitApply::getStuId,id).and(wrapper->wrapper.eq(ExitApply::getCheckStage, Constants.CLASSREFUSE)
+                .or().eq(ExitApply::getCheckStage,Constants.TEACHERREFUSE));
         List<ExitApply> list = exitApplyService.list(queryWrapper);
 
         return ResultBody.success(list);

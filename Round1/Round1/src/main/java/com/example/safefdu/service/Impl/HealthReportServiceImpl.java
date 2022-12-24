@@ -27,10 +27,11 @@ public class HealthReportServiceImpl extends ServiceImpl<HealthReportDao, Health
     @Override
     public List<HealthReport> listReport(String id, int count) {
         LambdaQueryWrapper<HealthReport> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.le(HealthReport::getTime, System.currentTimeMillis());
+        //System.out.println(new Timestamp(System.currentTimeMillis() - count * Constants.ONEDAY));
         queryWrapper.eq(HealthReport::getStuId,id);
+        queryWrapper.ge(HealthReport::getTime, System.currentTimeMillis() - count * Constants.ONEDAY);
         queryWrapper.orderByDesc(HealthReport::getTime);
-        queryWrapper.last("limit 0," + count);
+        //queryWrapper.last("limit 0," + count);
         List<HealthReport> healthReports = healthReportDao.selectList(queryWrapper);
         healthReports.sort(new Comparator<HealthReport>() {
             @Override

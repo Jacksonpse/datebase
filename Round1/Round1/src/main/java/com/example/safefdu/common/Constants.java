@@ -31,6 +31,8 @@ public class Constants {
 
     public static long ONEMINUTE = 60000L;
 
+    public static long ONEYEAR = 31536000000L;
+
 
 
 }
